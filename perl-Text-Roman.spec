@@ -15,7 +15,6 @@ Source:         http://www.cpan.org/modules/by-module/Text/%{module}-%{version}.
 BuildRequires:  perl-devel
 %endif
 BuildArch:      noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}
 
 %description
 This package supports both conventional Roman algarisms (which range from 1 to
