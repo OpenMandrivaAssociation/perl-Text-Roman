@@ -1,21 +1,21 @@
-%define module  Text-Roman
-%define name    perl-%{module}
-%define version 3.3
-%define release %mkrel 6
+%define upstream_name    Text-Roman
+%define upstream_version 3.3
 
-Name:           %{name}
-Version:        %{version}
-Release:        %{release}
-Summary:        Allows conversion between Roman and Arabic algarisms
-License:        GPL or Artistic
-Group:          Development/Perl
-Url:            http://search.cpan.org/dist/%{module}
-Source:         http://www.cpan.org/modules/by-module/Text/%{module}-%{version}.tar.bz2
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
+Summary:    Allows conversion between Roman and Arabic algarisms
+License:    GPL+ or Artistic
+Group:      Development/Perl
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/Text/%{upstream_name}-%{upstream_version}.tar.bz2
+
 %if %{mdkversion} < 1010
 BuildRequires:  perl-devel
 %endif
 BuildArch:      noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 This package supports both conventional Roman algarisms (which range from 1 to
@@ -30,7 +30,7 @@ Note: the functions in this package treat Roman algarisms in a case-insensitive
 manner such that "VI" == "vI" == "Vi" == "vi".
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -51,4 +51,3 @@ rm -rf %{buildroot}
 %doc Changes LICENSE README
 %{perl_vendorlib}/Text
 %{_mandir}/*/*
-
