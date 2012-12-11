@@ -1,21 +1,18 @@
 %define upstream_name    Text-Roman
 %define upstream_version 3.3
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	2
 
-Summary:    Allows conversion between Roman and Arabic algarisms
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Text/%{upstream_name}-%{upstream_version}.tar.bz2
+Summary:	Allows conversion between Roman and Arabic algarisms
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Text/%{upstream_name}-%{upstream_version}.tar.bz2
 
-%if %{mdkversion} < 1010
-BuildRequires:  perl-devel
-%endif
-BuildArch:      noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildArch:	noarch
 
 %description
 This package supports both conventional Roman algarisms (which range from 1 to
@@ -33,21 +30,47 @@ manner such that "VI" == "vI" == "Vi" == "vi".
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
-%{__make} test
-
-%clean 
-rm -rf %{buildroot}
+make test
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 %files
-%defattr(-,root,root)
 %doc Changes LICENSE README
 %{perl_vendorlib}/Text
 %{_mandir}/*/*
+
+
+%changelog
+* Sat Aug 01 2009 JÃ©rÃ´me Quelin <jquelin@mandriva.org> 3.300.0-1mdv2010.0
++ Revision: 405714
+- rebuild using %%perl_convert_version
+
+* Wed Jul 23 2008 Thierry Vignaud <tvignaud@mandriva.com> 3.3-6mdv2009.0
++ Revision: 241990
+- rebuild
+- kill re-definition of %%buildroot on Pixel's request
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Sat Sep 15 2007 Guillaume Rousse <guillomovitch@mandriva.org> 3.3-4mdv2008.0
++ Revision: 87029
+- rebuild
+
+
+* Tue Aug 29 2006 Guillaume Rousse <guillomovitch@mandriva.org> 3.3-3mdv2007.0
+- Rebuild
+
+* Fri Apr 28 2006 Nicolas Lécureuil <neoclust@mandriva.org> 3.3-2mdk
+- Fix SPEC according to Perl Policy
+    - Source URL
+- use mkrel
+
+* Tue Aug 23 2005 Guillaume Rousse <guillomovitch@mandriva.org> 3.3-1mdk
+- first mdk release
+
