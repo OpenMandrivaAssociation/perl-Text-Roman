@@ -1,15 +1,15 @@
 %define upstream_name    Text-Roman
-%define upstream_version 3.3
+%define upstream_version 3.5
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	2
+Release:	1
 
 Summary:	Allows conversion between Roman and Arabic algarisms
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Text/%{upstream_name}-%{upstream_version}.tar.bz2
+Source0:	http://www.cpan.org/modules/by-module/Text/Text-Roman-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
 BuildArch:	noarch
@@ -73,4 +73,5 @@ make test
 
 * Tue Aug 23 2005 Guillaume Rousse <guillomovitch@mandriva.org> 3.3-1mdk
 - first mdk release
+
 

@@ -1,2 +1,4 @@
+removed_sources:
+  Text-Roman-3.3.tar.bz2: 881ab069cd201f201735f93b97c4281e9bd791fa
 sources:
-  "Text-Roman-3.3.tar.bz2": 881ab069cd201f201735f93b97c4281e9bd791fa
+  Text-Roman-3.5.tar.gz: e0713ef685067cadae0b4ed5247dfe1b185baa21
