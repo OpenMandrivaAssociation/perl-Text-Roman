@@ -2,14 +2,14 @@
 %define upstream_version 3.5
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Version:	%{upstream_version}
+Release:	4
 
 Summary:	Allows conversion between Roman and Arabic algarisms
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Text/Text-Roman-%{upstream_version}.tar.gz
+Url:		https://github.com/creaktive/Text-Roman
+Source0:	https://cpan.metacpan.org/authors/id/S/SY/SYP/Text-Roman-%{upstream_version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
