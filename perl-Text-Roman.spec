@@ -1,15 +1,13 @@
 %define upstream_name    Text-Roman
-%define upstream_version 3.5
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	4
+Version:	3.5
+Release:	5
 
 Summary:	Allows conversion between Roman and Arabic algarisms
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://github.com/creaktive/Text-Roman
-Source0:	https://cpan.metacpan.org/authors/id/S/SY/SYP/Text-Roman-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/S/SY/SYP/Text-Roman-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -28,7 +26,7 @@ Note: the functions in this package treat Roman algarisms in a case-insensitive
 manner such that "VI" == "vI" == "Vi" == "vi".
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -49,9 +47,7 @@ make test
 %changelog
 * Sat Aug 01 2009 JÃ©rÃ´me Quelin <jquelin@mandriva.org> 3.300.0-1mdv2010.0
 + Revision: 405714
-- rebuild using %%perl_convert_version
-
-* Wed Jul 23 2008 Thierry Vignaud <tvignaud@mandriva.com> 3.3-6mdv2009.0
+- rebuild using %3.5 Wed Jul 23 2008 Thierry Vignaud <tvignaud@mandriva.com> 3.3-6mdv2009.0
 + Revision: 241990
 - rebuild
 - kill re-definition of %%buildroot on Pixel's request
